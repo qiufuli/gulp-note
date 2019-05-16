@@ -1,0 +1,79 @@
+{{ set list = [
+  {
+    id: '01',
+    name: '首页',
+    url: '../index.html'
+  },
+  {
+    id: '02',
+    name: '档案服务',
+    list: [
+      {
+        id: '0201',
+        name: '预约办事',
+        url: '../web/order/index.html'
+        <!-- url:'' -->
+      },
+      {
+        id: '0202',
+        name: '自助打印',
+        url: '../web/print/index.html'
+        <!-- url:'' -->
+      },
+      {
+        id: '0203',
+        name: '信息查询',
+        url: '../web/searchNews.html'
+      }
+    ]
+  },
+  {
+    id: '03',
+    name: '机构名录',
+    url: '../web/qtym/organization.html'
+  },
+  {
+    id: '04',
+    name: '服务指南',
+    url: '../web/fwzn/guide.html'
+  },
+  {
+    id: '05',
+    name: '常见问题',
+    url: '../web/qtym/question.html'
+  }
+]
+}}
+
+
+<div class="head">
+  <div class="contain clearfix">
+    <div class="logo left"></div>
+    {{if !data.nonav}}
+    <ul class="btns right">
+      {{each list}}
+        <li {{if $value.id == data.nav}} class="on" {{/if}}>
+          {{if $value.list}}
+            <a > {{$value.name}}</a>
+            <ul class="sub_wrap">
+              {{each $value.list}}
+               {{if $value.url == ""}}
+                <li>
+                  <a class="J_whz" style="cursor: pointer;" {{if $value.id == data.sub}} class="on" {{/if}}>{{$value.name}}</a>
+                </li>
+                {{else}}
+                <li>
+                  <a {{if $value.id == data.sub}} class="on" {{/if}} href="{{$value.url}}">{{$value.name}}</a>
+                </li>
+                {{/if}}
+              {{/each}}
+            </ul>
+          {{else}}
+            <a href="{{$value.url}}">{{$value.name}}</a>
+          {{/if}}
+        </li>
+      {{/each}}
+    </ul>
+    {{/if}}
+  </div>
+</div>

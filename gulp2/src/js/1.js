@@ -5,6 +5,6 @@ let b=5;
 
 (()=>{
   let c=55;
-
+  console.log(c)
   //alert(c);
 })()

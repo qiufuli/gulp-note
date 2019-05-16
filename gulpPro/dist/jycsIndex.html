@@ -1,0 +1,510 @@
+<!DOCTYPE html><html><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./styles/common.css">
+  <link rel="stylesheet" href="./styles/iconfont.css">
+  <link rel="stylesheet" href="./styles/index.css">
+  <title>数据分析</title>
+</head>
+
+<body>
+  <!-- 公共头部 -->
+  <div class="header ">
+    <div class="header_con clearfix">
+      <div class="header_left left">
+        <span>就业超市</span>
+        <i class="iconfont iconarrow-down"></i>
+        <div class="left_list">
+          <a href="javascript:void(0)" class="active">就业超市</a>
+          <a href="javascript:void(0)">职业介绍服务</a>
+        </div>
+      </div>
+      <div class="header_center">
+        就业超市数据分析平台
+      </div>
+      <div class="header_right right J_exit">
+        <i class="iconfont icontuichu"></i>
+        退出
+      </div>
+    </div>
+
+  </div>
+  <!-- 内容部分 -->
+  <div class="content">
+    <!-- 左侧菜单 -->
+    <div class="tree left">
+      <img class="zblb" src="./styles/images/zblb.png" alt>
+      <div class="tree_list scrollLine" id="detailWrap">
+        <script type="text/html" id="detailItem">
+        <%if(data.executeResult == 1){%>
+          <% var _data = data.sjfxpt_d_tjzbdmb%>
+        <ul class="list_ul">
+          <%for(var i=0;i<_data.length;i++){%>
+            <%var _item = _data[i]%>
+          <li>
+            <div class="list_item">
+              <%if(_item.children){%>
+                <div class="list_item_text clearfix">
+                    <i class="iconfont iconList left <%='icon'+i%>"></i>
+                    <p class="left" title="<%=_item.dmmc%>"><%=_item.dmmc%></p>
+                    <b class="right iconfont iconarrow-down gray"></b>
+                  </div>
+                <div class="list_sub_item clearfix">
+                <%for(var j=0;j<_item.children.length;j++){%>
+                  <% var sub_item = _item.children[j]%>
+                  <p class="left " dmid="<%=sub_item.dmid%>" title="<%=sub_item.dmmc%>"><%=sub_item.dmmc%></p>
+                  <%}%>
+                </div>
+              <%}else{%>
+                <div class="list_item_text clearfix" dmid="<%=_item.dmid%>">
+                    <i class="iconfont iconList left <%='icon'+i%>"></i>
+                    <p class="left" title="<%=_item.dmmc%>"><%=_item.dmmc%></p>
+                  </div>
+              <%}%>
+            </div>
+            </li>
+          <%}%>
+        </ul>
+        <%}%>
+      </script>
+      </div>
+    </div>
+    <!-- 右侧内容部分 -->
+    <div class="con_right right">
+      <!-- 访问量 -->
+      <div class="visit">
+        <p class="syadd"><i class="iconfont icon-address"></i><span>首页访问量</span></p>
+      </div>
+      <!-- 趋势分析 -->
+      <div class="trend">
+        <div class="two_title">
+          <p class="qsfx left">趋势分析</p>
+          <ul class="qstitle" id="tjTimeWrap">
+            <script type="text/html" id="tjTimeItem">
+              <%if(data.executeResult == 1){%>
+                <%for(var i=0;i<data.sjfxpt_d_tjrqddmb.length;i++){%>
+                  <% var _data = data.sjfxpt_d_tjrqddmb[i]%>
+                  <%if(i == 0){%>
+                    <li dmid="<%=_data.dmid%>" class="active"><%=_data.dmmc%></li>
+                  <%}else{%>
+                    <li dmid="<%=_data.dmid%>"><%=_data.dmmc%></li>
+                  <%}%>
+                <%}%>
+              <%}%>
+            </script>
+          </ul>
+        </div>
+        <div id="main" class="lines"></div>
+      </div>
+      <div class="data_item clearfix">
+        <!-- 业务量展示 -->
+        <div class="ywl left" id="ywlWrap">
+          <script type="text/html" id="ywlItem">
+          <p class="ywlzs">业务量展示</p>
+          <%if(data.executeResult == 1){%>
+          <table>
+            <thead class="theads">
+              <!-- <td class="on"><%=data.date[0]%></td> -->
+              <td width="15%"><%=data.date[0]%></td>
+              <td width="25%"><%=data.date[1]%></td>
+              <td width="20%"><%=data.date[2]%></td>
+              <td width="20%"><%=data.date[3]%></td>
+              <td width="20%"><%=data.date[4]%></td>
+            </thead>
+            <tr>
+              <td><span class="counts"><%=data.fwl[0]%></span></td>
+              <td><%=data.fwl[1]%></td>
+              <td><%=data.fwl[2]%></td>
+              <td><%=data.fwl[3]%></td>
+              <td><%=data.fwl[4]%></td>
+            </tr>
+            <tr>
+              <td><span class="persons"><%=data.syl[0]%></span></td>
+              <td><%=data.syl[1]%></td>
+              <td><%=data.syl[2]%></td>
+              <td><%=data.syl[3]%></td>
+              <td><%=data.syl[4]%></td>
+            </tr>
+          </table>
+          <%}%>
+          </script>
+        </div>
+        <!-- 同比分析 -->
+        <div class="tbfx right" id="TbfxWrap">
+          <script type="text/html" id="TbfxTem">
+            <p class="anays">同比分析</p>
+            <div>
+              <div class="clearfix">
+                <p class="indexfwl left Pages">页面浏览量</p>
+                <p class="indexfwl left on Nums" style="margin-left: 10px;">使用人数</p>
+              </div>
+              <div class="Ymll">
+                <p class="months clearfix">
+                  <span class="mon_left"><%=data[0].date%></span>
+                  <span class="mon_right"><i class="iconfont <%=(data[0].fwlbs == '1' ? 'icon-up' : (data[0].fwlbs == '-1' ? 'icon-down' : ''))%>"></i><%=data[0].fwl%></span>
+                </p>
+                <p class="months clearfix">
+                  <span class="mon_left"><%=data[1].date%></span>
+                  <span class="mon_right"><i class="iconfont <%=(data[1].fwlbs == '1' ? 'icon-up' : (data[1].fwlbs == '-1' ? 'icon-down' : ''))%>"></i><%=data[1].fwl%></span>
+                </p>
+                <p class="months clearfix">
+                  <span class="mon_left"><%=data[2].date%></span>
+                  <span class="mon_right"><i class="iconfont <%=(data[2].fwlbs == '1' ? 'icon-up' : (data[2].fwlbs == '-1' ? 'icon-down' : ''))%>"></i><%=data[2].fwl%></span>
+                </p>
+                <p class="months clearfix">
+                  <span class="mon_left"><%=data[3].date%></span>
+                  <span class="mon_right"><i class="iconfont <%=(data[3].fwlbs == '1' ? 'icon-up' : (data[3].fwlbs == '-1' ? 'icon-down' : ''))%>"></i><%=data[3].fwl%></span>
+                </p>
+              </div>
+              <div class="Syrs" style="display:none">
+                <p class="months clearfix">
+                  <span class="mon_left"><%=data[0].date%></span>
+                  <span class="mon_right"><i class="iconfont <%=(data[0].sylbs == '1' ? 'icon-up' : (data[0].sylbs == '-1' ? 'icon-down' : ''))%>"></i><%=data[0].syl%></span>
+                </p>
+                <p class="months clearfix">
+                  <span class="mon_left"><%=data[1].date%></span>
+                  <span class="mon_right"><i class="iconfont <%=(data[1].sylbs == '1' ? 'icon-up' : (data[1].sylbs == '-1' ? 'icon-down' : ''))%>"></i><%=data[1].syl%></span>
+                </p>
+                <p class="months clearfix">
+                  <span class="mon_left"><%=data[2].date%></span>
+                  <span class="mon_right"><i class="iconfont <%=(data[2].sylbs == '1' ? 'icon-up' : (data[2].sylbs == '-1' ? 'icon-down' : ''))%>"></i><%=data[2].syl%></span>
+                </p>
+                <p class="months clearfix">
+                  <span class="mon_left"><%=data[3].date%></span>
+                  <span class="mon_right"><i class="iconfont <%=(data[3].sylbs == '1' ? 'icon-up' : (data[3].sylbs == '-1' ? 'icon-down' : ''))%>"></i><%=data[3].syl%></span>
+                </p>
+              </div>
+            </div>
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 公共尾部 -->
+  <div class="com_footer">
+		<div class="com_footer_con">
+			<div class="footer_wrap">
+				<img src="styles/images/dzjg.png" alt>
+				<p>北京市人力资源和社会保障局 版权所有<br>
+						政府网站标识码：1100000062 京公网安备：110102000777 ICP备案序号：京ICP备05056884号<br>
+						推荐使用Internet Explorer 8.0 以上版本Web浏览器浏览本站
+				</p>
+				<a href="javascript:void(0);" class="J_zfwzzc">
+				<img src="styles/images/zfwzzc.png" alt>
+				</a>
+			</div>
+		</div>
+	</div>
+
+<script src="./common/js/vendor.js"></script>
+<script src="./common/js/echarts.min.js"></script>
+<script src="./common/js/common.js"></script>
+<script>
+  $(function () {
+    //页面初始化
+    var loading = new $.Loading();
+    // 全局变量
+    var zbbh = ''; //指标编号
+
+    $(document).on('click', '.list_item_text', function () {
+      if ($(this).next('.list_sub_item').length == 0) {
+        // 没有二级菜单 加class ===> active
+        $('.list_item_text').removeClass('active').removeClass('b_active');
+        $('.list_sub_item p').removeClass('sub_active');
+        $('.list_item_text').find('b').removeClass('iconarrow-up').addClass('iconarrow-down');
+        $('.list_sub_item').slideUp();
+        $(this).addClass('active');
+        // 这里是获取参数渲染的地方
+        zbbh = $(this).attr('dmid');
+        getChart(zbbh);
+        getYwl(zbbh);
+        getTbfx(zbbh);
+      } else {
+        if ($(this).find('b').hasClass('iconarrow-up')) {
+          $(this).find('b').removeClass('iconarrow-up').addClass('iconarrow-down');
+          $(this).next('.list_sub_item').slideUp();
+        } else {
+          $('.list_item_text').removeClass('active').removeClass('b_active');
+          $('.list_sub_item p').removeClass('sub_active');
+          $('.list_item_text').find('b').removeClass('iconarrow-up').addClass('iconarrow-down');
+          $('.list_sub_item').slideUp();
+          $(this).addClass('b_active');
+          $(this).find('b').removeClass('iconarrow-down').addClass('iconarrow-up');
+          $(this).next('.list_sub_item').slideDown();
+        }
+      }
+    });
+    $(document).on('click', '.list_sub_item p', function () {
+      $('.list_sub_item p').removeClass('sub_active');
+      $(this).addClass('sub_active');
+      // 这里是获取参数渲染的地方
+      zbbh = $(this).attr('dmid');
+      getChart(zbbh);
+      getYwl(zbbh);
+      getTbfx(zbbh);
+    })
+    // 统计时间点击事件
+    $(document).on('click', '.qstitle li', function () {
+      $(this).addClass('active').siblings('li').removeClass('active');
+      // 查询日期
+      var cxrq = $(this).attr('dmid');
+      getChart(zbbh, cxrq)
+    });
+    init();
+    /**
+     * @desc 初始化事件
+     * */
+    function init() {
+      loading.on();
+      $.asyncRender({
+        url: '/dmb/dmbList',
+        type: 'get',
+        data: {
+          bmc: 'sjfxpt_d_tjzbdmb'
+        },
+        pos: 'returnData',
+        tem: '#detailItem',
+        wrap: '#detailWrap'
+      }).done(function (res) {
+        var _res = res.returnData;
+        if (_res.executeResult == '1') {
+          getTjTime();
+          $('.list_item_text').eq(0).click();
+
+        } else {
+          $.layerMsg(_res.message, '我知道了');
+        }
+      }).always(function () {
+        loading.off()
+      });
+    }
+    // 切换同比分析
+    $(document).on('click', '.Pages', function () {
+      $(this).removeClass('on');
+      $('.Nums').addClass('on');
+      $('.Ymll').show().siblings('.Syrs').hide();
+    })
+    $(document).on('click', '.Nums', function () {
+      $(this).removeClass('on');
+      $('.Pages').addClass('on');
+      $('.Syrs').show().siblings('.Ymll').hide();
+    })
+    /**
+     * @desc 统计时间代码表
+     * */
+    function getTjTime() {
+      $.asyncRender({
+        url: '/dmb/dmbList',
+        type: 'get',
+        data: {
+          bmc: 'sjfxpt_d_tjrqddmb'
+        },
+        pos: 'returnData',
+        tem: '#tjTimeItem',
+        wrap: '#tjTimeWrap'
+      }).done(function (res) {
+        var _res = res.returnData;
+        if (_res.executeResult == '1') {
+        } else {
+          $.layerMsg(_res.message, '我知道了');
+        }
+      })
+    }
+    /**
+     * @desc echart统计
+     * */
+    function getChart(zbbh, cxrq) {
+      var cxrq = cxrq || '01';
+      $.fetch({
+        url: '/qsfx',
+        type: 'post',
+        data: {
+          cxrq: cxrq,
+          zbbh: zbbh,
+          cxtj: ''
+        }
+      }).done(function (res) {
+        var _res = res.returnData;
+        if (_res.executeResult == 1) {
+          // 基于准备好的dom，初始化echarts实例
+          var myChart = echarts.init(document.getElementById('main'));
+          var option = {};
+          var data = {
+            cxrq: '01',
+            zbbh: '10000000',
+            cxtj: '01'
+          }
+          //指定图表的配置项和数据
+          option = {
+            title: {
+              subtext: '数量',
+              left: '4%'
+            },
+            tooltip: {
+              trigger: 'axis',
+              axisPointer: {
+                type: 'cross',
+                label: {
+                  backgroundColor: '#6a7985'
+                }
+              }
+            },
+            legend: {
+              data: ['页面浏览量', '使用人数'],
+              right: '3%'
+            },
+            toolbox: {
+              feature: {
+                saveAsImage: {}
+              }
+            },
+            grid: {
+              left: '4%',
+              right: '4%',
+              bottom: '2%',
+              containLabel: true
+            },
+            xAxis: [
+              {
+                type: 'category',
+                boundaryGap: false,
+                nameTextStyle: {
+                  color: '#ccc'
+                },
+                data:_res.date
+              }
+            ],
+            yAxis: [
+              {
+                type: 'value'
+              }
+            ],
+            series: [
+              {
+                name: '页面浏览量',
+                type: 'line',
+                // stack: '总量',
+                areaStyle: {},
+                smooth: true,
+                data: _res.fwl,
+                areaStyle: {
+                  normal: {
+                    color: {
+                      type: 'linear',
+                      x: 0,
+                      y: 1,
+                      x2: 0,
+                      y2: 0,
+                      colorStops: [{
+                        offset: 0, color: '#ffffff' // 0% 处的颜色
+                      }, {
+                        offset: 1, color: '#66CCFF' // 100% 处的颜色
+                      }],
+                    }
+                  }
+                },
+              },
+              {
+                name: '使用人数',
+                type: 'line',
+                // stack: '总量',
+                areaStyle: {},
+                smooth: true,
+                data: _res.syl,
+                areaStyle: {
+                  normal: {
+                    //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
+                    color: {
+                      type: 'linear',
+                      x: 0,
+                      y: 1,
+                      x2: 0,
+                      y2: 0,
+                      colorStops: [{
+                        offset: 0, color: '#ffffff' // 0% 处的颜色
+                      }, {
+                        offset: 1, color: '#81ECCA' // 100% 处的颜色
+                      }],
+                    }
+                  }
+                }
+              }
+            ],
+            color: ['#66CCFF', '#81ECCA']
+          };
+          // 使用刚指定的配置项和数据显示图表。
+          myChart.setOption(option);
+        }
+      })
+    }
+    /**
+     * @desc 业务量展示
+     * */
+    function getYwl(zbbh){
+      loading.on();
+      $.asyncRender({
+        url: '/ywlzs',
+        type: 'post',
+        data: {
+          zbbh:zbbh
+        },
+        pos: 'returnData',
+        tem: '#ywlItem',
+        wrap: '#ywlWrap'
+      }).done(function (res) {
+        // console.log('res',res);
+        var _res = res.returnData;
+        if (_res.executeResult == '1') {
+        } else {
+          $.layerMsg(_res.message, '我知道了');
+        }
+      }).always(function () {
+        loading.off()
+      });
+    }
+
+    /**
+    * 同比分析
+    **/
+    function getTbfx(zbbh) {
+      $.asyncRender({
+        url: '/tbfx',
+        type: 'post',
+        data: { zbbh: zbbh},
+        pos: 'returnData.data',
+        tem: '#TbfxTem',
+        wrap: '#TbfxWrap'
+      }).done(function (res) {
+        var _res = res.returnData;
+        if (_res.executeResult == '1') {
+          $('.syadd span').text(_res.mc);
+        } else {
+          $.layerMsg(_res.message, '我知道了');
+        }
+      })
+    }
+    /**
+     * @desc 退出登录
+     * */
+    $(document).on('click','.J_exit',function(){
+      $.layerMsg("确定退出当前账号吗?",[
+        {
+          text:'确定',
+          cb:function(){
+            window.location.href=conf.urlPrefix + '/logout';
+          }
+        },
+        {
+          text:'取消',
+          cb:function(){
+            return false;
+          }
+        }
+      ]);
+    })
+  });
+</script>
+
+
+</body></html>

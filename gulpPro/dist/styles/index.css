@@ -1,0 +1,125 @@
+.syadd {
+  margin: 0 19px 0 34px;
+  line-height: 60px;
+  font-size:16px;
+  font-weight: 600;
+  color:rgba(0, 51, 102, 1);
+}
+.syadd span{
+  vertical-align: top;
+}
+.two_title {
+  height: 60px;
+  line-height: 60px;
+}
+.two_title .qsfx {
+  height: 60px;
+  font-size:22px;
+  font-weight:bold;
+  color:rgba(0, 51, 102, 1);
+  background: url('./images/qsfx.png') 30px 50% no-repeat;
+  padding-left: 70px;
+  margin-right: 60px;
+}
+.two_title .qstitle li {
+  float: left;
+  height: 60px;
+  line-height: 60px;
+  width: 42px;
+  cursor: pointer;
+  margin: 0 30px;
+  color: #666666;
+}
+.two_title .qstitle li:hover ,.two_title .qstitle li.active{
+  border-bottom: 2px solid #5FBFFF;
+  color: #5FBFFF;
+  font-weight: 700;
+}
+.lines {
+  height: 280px;
+  width: 950px;
+  margin-top: 20px;
+}
+.ywl .ywlzs {
+  height: 60px;
+  line-height: 60px;
+  font-size:22px;
+  font-weight:bold;
+  color:rgba(0, 51, 102, 1);
+  background: url('./images/ywlzs.png') 30px 50% no-repeat;
+  padding-left: 70px;
+  border-bottom: 1px solid rgba(244, 246, 249, 1);
+}
+.tbfx .anays {
+  height: 60px;
+  line-height: 60px;
+  font-size:22px;
+  font-weight:bold;
+  color:rgba(0, 51, 102, 1);
+  background: url('./images/tbfx.png') 30px 50% no-repeat;
+  padding-left: 70px;
+  border-bottom: 1px solid rgba(244, 246, 249, 1);
+}
+.tbfx .indexfwl {
+  width:80px;
+  font-size:16px;
+  font-family:MicrosoftYaHeiUI-Bold;
+  font-weight:bold;
+  text-align: center;
+  color:rgba(0, 153, 255, 1);
+  line-height:48px;
+  margin-left:30px;
+  border-bottom: 2px solid rgba(0, 153, 255, 1);
+  cursor: pointer;
+}
+.tbfx .indexfwl.on {
+  color: #999;
+  border-bottom: none;
+}
+.tbfx .months {
+  margin: 0 30px;
+  font-size: 14px;
+  width: 240px;
+}
+.tbfx .mon_left {
+  float: left;
+  color: #999;
+  line-height: 40px;
+}
+.tbfx .mon_right {
+  float: right;
+  color: #333;
+  line-height: 40px;
+}
+.ywl table {
+  width: 580px;
+  margin: 0 30px;
+  line-height: 60px;
+}
+.ywl table .theads td {
+  color: #0099FF;
+  font-size: 16px;
+}
+.ywl table .theads td.on {
+  font-weight: 700;
+}
+.ywl table td {
+  text-align: center;
+  color: #333;
+}
+.ywl .counts {
+  width:72px;
+  height:24px;
+  background:rgba(102, 204, 255, 1);
+  color: #fff;
+  padding: 0 5px;
+  font-weight: 600;
+}
+.ywl .persons {
+  width: 72px;
+  height: 24px;
+  background:rgba(54, 226, 171, 1);
+  color: #fff;
+  padding: 0 5px;
+  font-weight: 600;
+}

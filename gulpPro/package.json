@@ -1,0 +1,35 @@
+{
+  "name": "gulpPro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gulp dev",
+    "prod": "gulp prod",
+    "build": "gulp prod",
+    "ie8": "gulp ie8"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "art-template": "^4.13.2",
+    "autoprefixer": "^9.5.1",
+    "browser-sync": "^2.26.5",
+    "cheerio": "^1.0.0-rc.3",
+    "del": "^4.1.1",
+    "express": "^4.16.4",
+    "gulp": "^3.9.1",
+    "gulp-changed": "^3.2.0",
+    "gulp-cssbeautify": "^1.0.1",
+    "gulp-debug": "^4.0.0",
+    "gulp-html-beautify": "^1.0.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "http-proxy-middleware": "^0.19.1",
+    "run-sequence": "^2.2.1",
+    "through2": "^3.0.1"
+  }
+}

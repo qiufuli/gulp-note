@@ -1,0 +1,202 @@
+#app, body, html {
+  width: 100%;
+  height: 100%;
+  /* overflow: hidden; */
+  background-color: #ededed;
+}
+.login_wrap {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  background: url(./images/login.png) repeat center;
+}
+.xgmm_tit{
+  text-align: center;
+  font-size: 25px;
+  color: #0099ff;
+  margin-top: 25px;
+}
+.chang_login{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
+  border-top: 10px solid #003e8c;
+  background-color: #fff;
+}
+.ms_title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 435px;
+  margin-top: -410px;
+  margin-left: -221px;
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
+  height: 60px;
+  line-height: 60px;
+  display: inline-block;
+  vertical-align:top;
+}
+.duiqi{
+  position: relative;
+  top:-12px;
+  color: #0099ff;
+}
+.ms_login_con{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 410px;
+  height: 420px;
+  margin: -215px 0 0 -210px;
+  border-radius: 5px;
+  /* background: #fff; */
+}
+.ms_login_con h1{
+  color: #ffffff;
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 33px;
+  letter-spacing: 6px;
+}
+.ms_login{
+  width: 360px;
+  padding: 30px 25px 25px 25px;
+  border-radius: 5px;
+  background: #fff;
+  /* border-top: 10px solid #003e8c; */
+}
+.yzLogo {
+  height: 142px;
+  width: 186px;
+  margin-right: 10px;
+  display: inline-block;
+  background: url(./images/jzfp.png) no-repeat center;
+}
+.fl{
+  float: left;
+}
+form {
+  display: block;
+  margin-top: 0em;
+}
+.itemi_content{
+  line-height: 40px;
+  position: relative;
+  font-size: 14px;
+}
+.item_input{
+  position: relative;
+  font-size: 14px;
+  display: inline-block;
+  width: 100%;
+}
+.item_inner{
+  -webkit-appearance: none;
+  background-color: #fff;
+  background-image: none;
+  border-radius: 4px;
+  border: 1px solid #dcdfe6;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #606266;
+  display: inline-block;
+  font-size: inherit;
+  height: 40px;
+  line-height: 40px;
+  outline: 0;
+  padding: 0 15px;
+  -webkit-transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+  transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+  width: 100%;
+}
+.cbl{
+  overflow: auto;
+
+}
+.wxd{
+  margin-top: 20px;
+}
+.itemi_error{
+  color: #f56c6c;
+  font-size: 12px;
+  line-height: 1;
+  padding-top: 4px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  visibility:hidden;
+}
+.two{
+  top: 60px;
+}
+.login_btn{
+  text-align: center;
+  margin-top: 20px;
+  border: none;
+}
+.butt{
+  width: 100%;
+  height: 40px;
+  color: #fff;
+  background-color: #409EFF;
+  cursor: pointer;
+  padding: 12px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+  outline-style: none;
+  border:none;
+}
+
+.J_cz {
+  cursor:pointer;
+  color: #0099ff;
+}
+.down {
+  color: #fff !important;
+}
+.J_yzm{
+  cursor: pointer;
+}
+.xgmm_back {
+  color: #666560 !important;
+  font-size: 15px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.xgmm_back:hover{
+  color: #0099ff !important;
+}
+.xgmm_btn{
+  width: 43%;
+}
+/* 登录 */
+.yzm_btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.txyz_btn {
+  top: 1px;
+  right: 1px;
+  height: 38px;
+  background-color: #ccc;
+}
+.form_ps{
+  width: 100%;
+  height: 100%;
+}
+.form_ps .error_info, .form_lg .error_info {
+  top:31px;
+  left: 2px;
+}
+button {
+  color: #0099ff;
+  width: 120px;
+  height: 38px;
+  background-color: transparent;
+}
